@@ -15,6 +15,9 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 allprojects {
     repositories {
         mavenCentral()
+        maven {
+            url = uri("https://repo.spring.io/release")
+        }
     }
 
     tasks.withType<KotlinCompile> {
@@ -39,8 +42,22 @@ subprojects {
 
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter")
-        implementation("org.jetbrains.kotlin:kotlin-reflect")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib")
+        implementation(kotlin("stdlib"))
+        implementation(kotlin("reflect"))
+
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("org.springframework.boot:spring-boot-starter-actuator")
+        implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
+        implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+        val mongoVersion = "3.12.11"
+        implementation("org.mongodb:mongodb-driver:$mongoVersion")
+        implementation("org.mongodb:mongo-java-driver:$mongoVersion")
+        testImplementation("junit", "junit", "4.12")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
+    }
+
+    dependencyManagement {
+        imports { mavenBom("org.springframework.boot:spring-boot-dependencies:2.6.7") }
+        imports { mavenBom("org.springframework.cloud:spring-cloud-dependencies:2021.0.2") }
     }
 }
