@@ -1,4 +1,4 @@
-package me.sean.room.config
+package me.sean.light.config
 
 import com.mongodb.client.MongoClients
 import org.springframework.context.annotation.Bean
