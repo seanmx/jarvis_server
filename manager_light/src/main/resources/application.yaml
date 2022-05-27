@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: manager_light
+    name: manager-light
 
 eureka:
   client:

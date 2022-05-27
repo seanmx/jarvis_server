@@ -45,7 +45,7 @@ subprojects {
         implementation(kotlin("stdlib"))
         implementation(kotlin("reflect"))
 
-        implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("org.springframework.boot:spring-boot-starter-webflux")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
         implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
         implementation("org.springframework.boot:spring-boot-starter-data-mongodb")

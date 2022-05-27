@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: manager_room
+    name: manager-room
   data:
     mongodb:
       host: localhost
